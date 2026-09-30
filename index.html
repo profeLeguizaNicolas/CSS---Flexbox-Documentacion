@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - FlexBox.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="Imagenes/icono.png" type="image/x-icon">
+</head>
+<body>
+    <h1><span class="celeste">CSS</span> - FlexBox.</h1>
+    <b>¿Qué es FlexBox?</b><br>
+    <p>
+        Es un modelo de diseño de <span class="celeste">CSS</span> que permite organizar y distribuir elementos dentro de un contenedor de manera flexible.
+    </p>
+    <p>
+        Antes de utilizar <u>flexbox</u>, los elementos <span class="naranja">HTML</span> se organizan siguiendo el flujo normal de la página. Esto puede hacer que determinadas distribuciones sean más difíciles de conseguir, especialmente cuando necesitamos:
+    </p>
+    <ul>
+        <li>
+            <p>Colocar elementos uno al lado del otro.</p>
+        </li>
+        <li>
+            <p>Centrarlos horizontal o verticalmente.</p>
+        </li>
+        <li>
+            <p>Distribuirlos dentro de un espacio.</p>
+        </li>
+        <li>
+            <p>Cambiar su dirección.</p>
+        </li>
+        <li>
+            <p>Modificar el orden de los elementos.</p>
+        </li>
+    </ul>
+    <p>
+        <u>Flexbox</u> facilita estas tareas mediante un conjunto de propiedades que permiten controlar tanto el contenedor como los elementos que se encuentran dentro de él.
+    </p>
+    <hr>
+    <br>
+    <h2>El contenedor Flex.</h2>
+    <p>
+        Para comenzar a utilizar <u>Flexbox</u> debemos indicar qué elemento será el <b>contenedor Flex</b>.
+    </p>
+    <p>
+        Esto se realiza mediante la propiedad:
+    </p>
+<pre><code class="cpp">     <span class="celeste">display</span>: <span class="naranja">flex</span>;</code></pre><br>
+    <p>
+        Por ejemplo:
+    </p>
+    <u><span class="naranja">HTML</span></u>
+<pre><code class="cpp">    &lt;<span class="verde">div</span> <span class="celeste">class</span>=<span class="celeste">"contenedor"</span>&gt;
+        &lt;<span class="verde">div</span>&gt;Elemento 1&lt;/<span class="verde">div</span>&gt;
+        &lt;<span class="verde">div</span>&gt;Elemento 2&lt;/<span class="verde">div</span>&gt;
+        &lt;<span class="verde">div</span>&gt;Elemento 3&lt;/<span class="verde">div</span>&gt;
+    &lt;/<span class="verde">div</span>></code></pre><br>
+    <u><span class="celeste">CSS</span></u><br>
+<pre><code class="cpp">     <span class="dorado">.contenedor{</span>
+        <span class="celeste">display</span>: <span class="verde">flex</span>;
+    <span class="dorado">}</span></code></pre>
+    <br>
+    <p>
+        Al aplicar <code class="gris"><span class="celeste">display</span>: <span class="verde">flex</span></code>, el elemento <code>.contenedor</code> se convierte en un <b>contenedor Flex</b>.
+    </p>
+    <p>
+        Los elementos que se encuentran directamente dentro de él pasan a ser <b>elementos Flex</b>.
+    </p>
+    <div class="center">
+        <img src="Imagenes/imagen1.png" alt="">
+    </div>
+    <p>
+        Una característica importante es que, por defecto, los elementos se organizan horizontalmente.
+    </p>
+    <p>
+        Esto ocurre por que <u>Flexbox</u> utiliza <span class="verde">row</span> como dirección inicial.
+    </p>
+    <hr>
+    <h3><span class="celeste">flex-direction</span></h3>
+    <p>
+        La propiedad <code><span class="celeste">flex-direction</span></code> permite establecer la dirección del eje principal y, por lo tanto, la dirección en la que se organizan los elementos.
+    </p>
+    <u><span class="celeste">CSS</span></u><br>
+<pre><code class="cpp">     <span class="dorado">.contenedor{</span>
+        <span class="celeste">display</span>: <span class="verde">flex</span>;
+        <span class="celeste">flex-direction</span>: <span class="verde">row</span>;
+<span class="dorado">}</span></code></pre><br>
+    <p>
+        Los principales valores son: <code class="gris">row</code>, <code class="gris">row-reverse</code>, <code class="gris">column</code> y <code class="gris">column-reverse</code>.
+    </p>
+    <hr>
+    <br>
+    <h3><code><span class="verde">row</span></code></h3>
+    <p>
+        Es el valor predeterminado.
+    </p>
+    <p>
+        Los elementos se organizan de izquierda a derecha.
+    </p>
+    <u><span class="celeste">CSS</span></u>
+<pre><code class="cpp">     <span class="celeste">flex-direction</span>: <span class="verde">row</span>;</code></pre><br>
+    <div class="center">
+        <img src="Imagenes/imagen2.png" alt="">
+    </div>
+    <h3><code><span class="verde">row-reverse</span></code></h3>
+    <p>
+        Invierte el orden de los elementos.
+    </p>
+    <u><span class="celeste">CSS</span></u>
+<pre><code class="cpp">     <span class="celeste">flex-direction</span>: <span class="verde">row-reverse</span>;</code></pre><br>
+    <div class="center">
+        <img src="Imagenes/imagen3.png" alt="">
+    </div>
+    <h3><code><span class="verde">column</span></code></h3>
+    <p>
+        Cambia la dirección del eje principal y organiza los elementos verticalmente.
+    </p>
+    <u><span class="celeste">CSS</span></u>
+<pre><code class="cpp">     <span class="celeste">flex-direction</span>: <span class="verde">column</span>;</code></pre><br>
+    <div class="center">
+        <img src="Imagenes/imagen4.png" alt="" style="width: 40vw;">
+    </div>
+    <hr>
+    <br>
+    <h3><code><span class="celeste">justify-content</span></code></h3>
+    <p>
+        La propiedad <code><span class="celeste">justify-content</span></code> permite distribuir los elementos sobre el eje principal.
+    </p>
+    <p>
+        Por ejemplo:
+    </p>
+    <u><span class="celeste">CSS</span></u>
+<pre><code class="cpp">     <span class="dorado">.contenedor{</span>
+        <span class="celeste">display</span>: <span class="verde">flex</span>;
+        <span class="celeste">justify-content</span>: <span class="verde">center</span>
+    <span class="dorado">}</span></code></pre><br>
+    <p>
+        Con <code class="gris"><span class="celeste">flex-direction</span>: <span class="verde">row</span>;</code>, el eje principal es horizontal.
+    </p>
+    <div class="center">
+        <img src="Imagenes/imagen5.png" alt="">
+    </div>
+    <br>
+    <fieldset>
+        <p>
+            Los valores principales de <code class="gris"><span class="celeste">justify-content</span></code> son:
+        </p>
+        <ul>
+            <li>
+                <p>
+                    <code class="verde">flex-start</code>: Pone al elemento al inicio del contendor.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <code class="verde">center</code>: Centra al elemento dentro del contenedor.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <code class="verde">flex-end</code>: Pone al elemento al final del contenedor.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <code class="verde">space-between</code>: Distribute el espacio disponible entre los elementos.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <code class="verde">space-around</code>: Distribuye espacio alrededor de cada elemento.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <code class="verde">space-evenly</code>: Distribuye el espacio de manera uniforme.
+                </p>
+            </li>
+        </ul>
+    </fieldset>
+    <br>
+    <hr>
+    <br>
+    <h3><code class="verde">align-items</code></h3>
+    <p>
+        Permite alinear los elementos sobre el <b>eje transversal</b>.
+    </p>
+    <p>
+        Por ejemplo:
+    </p>
+    <u class="celeste">CSS</u>
+<pre><code class="cpp">     <span class="dorado">.contenedor{</span>
+        <span class="celeste">display</span>: <span class="verde">flex</span>;
+        <span class="celeste">height</span>: <span class="verde">300px</span>;
+        <span class="celeste">align-items</span>: <span class="verde">center</span>;
+    <span class="dorado">}</span></code></pre>
+    <fieldset>
+        <p>Valores de <code class="celeste">align-items</code>:</p>
+        <ul>
+            <li>
+                <p>
+                    <code class="verde">flex-start</code>: Coloca los elementos al comienzo del <b>eje transversal</b>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <code class="verde">center</code>: Centra los elementos sobre el <b>eje transversal</b>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <code class="verde">flex-end</code>: Coloca los elementos al final del <b>eje transversal</b>.
+                </p>
+            </li>
+        </ul>
+    </fieldset>
+    <br>
+    <hr>
+    <br>
+    <h3><code class="celeste">align-self</code></h3>.
+    <p>
+        Permite modificar la alineación de un único elemento independientemente de la alineación establecida mendiante <code class="celeste">align-items</code>.
+    </p>
+    <p>
+        Por ejemplo:
+    </p>
+    <u class="celeste">CSS</u>
+<pre><code class="cpp">     <span class="dorado">.contenedor{</span>
+        <span class="celeste">display</span>: <span class="verde">flex</span>;
+        <span class="celeste">align-items</span>: <span class="verde">center</span>;
+    <span class="dorado">}</span>
+    
+    <span class="dorado">.caja2{</span>
+        <span class="celeste">align-self</span>: <span class="verde">flex-end</span>;
+    <span class="dorado">}</span></code></pre>
+    <br>
+    <p>
+        En este caso, todos los elementos se alinean en el centro, excepto <code class="dorado">.caja2</code>, que se posiciona al final del <b>eje transversal</b>.
+    </p>
+    <div class="center">
+        <img src="Imagenes/imagene6.png" alt="">
+    </div>
+    <br>
+    <hr>
+    <br>
+</body>
+</html>
